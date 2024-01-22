@@ -48,7 +48,7 @@
 
   # Enable the KDE Plasma Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
+  services.xserver.desktopManager.plasma5.enable = false;
 
   # Configure keymap in X11
   services.xserver = {
@@ -94,13 +94,14 @@
       gammastep
       go
       neovim
-      nodejs_21
       nodePackages.eslint
+      nodejs_21
       onedrive
       php
       php82Packages.composer
       python3
       slack
+      teams-for-linux
       udiskie
     ];
   };
