@@ -127,6 +127,7 @@
     gnutar
     hyprpaper
     kitty
+    lua
     lua-language-server
     luajitPackages.luarocks-nix
     networkmanagerapplet
