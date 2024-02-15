@@ -142,6 +142,7 @@
     tmux
     unrar
     unzip
+    upower
     vim
     waybar
     wget
@@ -176,6 +177,8 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+
+  services.upower.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
