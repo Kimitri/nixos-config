@@ -144,6 +144,7 @@
     unzip
     upower
     vim
+    vpnc
     waybar
     wget
     wofi
