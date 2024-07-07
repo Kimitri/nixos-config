@@ -90,6 +90,7 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       ansible
+      bitwarden
       dropbox
       firefox
       gammastep
@@ -165,6 +166,7 @@
   # };
 
   programs.hyprland.enable = true;
+  programs.steam.enable = true;
   security.pam.services.swaylock = {
     text = ''
       auth include login
