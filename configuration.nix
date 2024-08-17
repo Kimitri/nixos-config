@@ -96,6 +96,7 @@
       gammastep
       go
       chromium
+      lynx
       neovim
       neomutt
       nodePackages.eslint
