@@ -99,7 +99,7 @@
       neovim
       neomutt
       nodePackages.eslint
-      nodejs_21
+      nodejs
       onedrive
       php
       php82Packages.composer
@@ -166,7 +166,7 @@
   # programs.mtr.enable = true;
   programs.gnupg.agent = {
     enable = true;
-    pinentryFlavor = "curses";
+    pinentryPackage = pkgs.pinentry-curses;
   };
 
   programs.hyprland.enable = true;
