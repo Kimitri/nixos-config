@@ -97,6 +97,7 @@
       go
       chromium
       neovim
+      neomutt
       nodePackages.eslint
       nodejs_21
       onedrive
@@ -128,6 +129,7 @@
     gcc
     git
     gnumake
+    gnupg
     gnutar
     hyprpaper
     kitty
