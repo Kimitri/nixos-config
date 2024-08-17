@@ -108,6 +108,7 @@
       slack
       teams-for-linux
       udiskie
+      urlscan
     ];
   };
 
