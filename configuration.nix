@@ -52,9 +52,9 @@
   services.xserver.desktopManager.plasma5.enable = false;
 
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "fi";
-    xkbVariant = "";
+    variant = "";
   };
 
   # Configure console keymap
