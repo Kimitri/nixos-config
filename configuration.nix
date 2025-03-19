@@ -83,6 +83,18 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  
+  # Enable OpenGL
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      libGL
+    ];
+  };
+
+
+
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.kimmo = {
     isNormalUser = true;
