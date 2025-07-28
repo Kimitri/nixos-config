@@ -118,6 +118,7 @@
       python3
       slack
       teams-for-linux
+      typst
       udiskie
       urlscan
     ];
