@@ -48,8 +48,7 @@
 
   # Enable the KDE Plasma Desktop Environment.
   # services.xserver.displayManager.sddm.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = false;
+  services.displayManager.gdm.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -102,7 +101,7 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       ansible
-      bitwarden
+      bitwarden-desktop
       dropbox
       firefox
       gammastep
@@ -156,7 +155,7 @@
     parted
     pinentry-curses
     rar
-    rtx
+    mise
     rustc
     rustfmt
     swayidle
