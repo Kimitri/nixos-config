@@ -102,6 +102,7 @@
     packages = with pkgs; [
       ansible
       bitwarden-desktop
+      claude-code
       dropbox
       firefox
       gammastep
