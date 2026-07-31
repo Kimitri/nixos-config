@@ -103,6 +103,7 @@
       ansible
       bitwarden-desktop
       claude-code
+      codex
       dropbox
       firefox
       gammastep
