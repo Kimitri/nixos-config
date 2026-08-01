@@ -111,7 +111,7 @@
       chromium
       lynx
       neomutt
-      nodePackages.eslint
+      eslint
       nodejs
       onedrive
       php
@@ -127,6 +127,11 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  # Allow certain insecure packages
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-39.8.10"
+  ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -209,6 +214,20 @@
   services.openssh.enable = true;
 
   services.upower.enable = true;
+
+
+  # Allow specific users to use sudo without prompting for password
+  security.sudo.extraRules = [
+    {
+      users = ["kimitri"];
+      commands = [
+        {
+          command = "ALL";
+	  options = ["NOPASSWD"];
+        }
+      ];
+    }
+  ];
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
