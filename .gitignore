@@ -1,3 +1,4 @@
 result
 hardware-configuration.nix
 *.swp
+*-vpn.nix
