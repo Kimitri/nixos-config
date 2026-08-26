@@ -15,7 +15,12 @@ let
     SW=${pkgs.strongswan}/bin/swanctl
     case "''${1:-status}" in
       up)     echo "Connecting karhu VPN..."; "$SW" --initiate --child karhu ;;
-      down)   echo "Disconnecting karhu VPN..."; "$SW" --terminate --child karhu ;;
+      # Terminate the IKE_SA, not just the child: closing only the CHILD_SA leaves
+      # the IKE_SA ESTABLISHED, still holding the virtual IP and sending NAT-T
+      # keepalives. Killing the IKE_SA takes its children down with it. The
+      # `|| true` keeps `down` idempotent under `set -e` when nothing is up.
+      down)   echo "Disconnecting karhu VPN..."
+              "$SW" --terminate --ike karhu --timeout 5 || true ;;
       status) "$SW" --list-sas ;;
       *)      echo "usage: karhu-vpn {up|down|status}" >&2; exit 1 ;;
     esac
@@ -37,7 +42,7 @@ in
       # WE authenticate with EAP-MSCHAPv2; IKE identity must be key-id "100".
       local.eap = {
         auth   = "eap-mschapv2";
-        eap_id = "ktapala";
+        eap_id = "<username>";
         id     = "keyid:100";
       };
       # The GATEWAY authenticates to us with the PSK.
@@ -47,7 +52,7 @@ in
         remote_ts     = [ "0.0.0.0/0" ];
         esp_proposals = [ "aes128-sha256-modp2048" "aes128-sha256" ];
         # On-demand: nothing dials at boot; bring it up when you want it with
-        #   swanctl --initiate --child karhu     (down with: swanctl --terminate --child karhu)
+        #   swanctl --initiate --child karhu     (down with: swanctl --terminate --ike karhu)
         # (Avoid "trap" here: a 0.0.0.0/0 trap policy can blackhole your default route.)
         start_action  = "none";
       };
